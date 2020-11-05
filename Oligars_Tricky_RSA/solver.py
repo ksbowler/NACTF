@@ -1,0 +1,12 @@
+#import sympy
+from Crypto.Util.number import *
+c = 97938185189891786003246616098659465874822119719049
+e = 65537
+n = 196284284267878746604991616360941270430332504451383
+#print(sympy.factorint(n))
+p = 10252256693298561414756287
+q = 19145471103565027335990409
+assert p*q == n
+d = inverse(e,(p-1)*(q-1))
+mes = pow(c,d,n)
+print(long_to_bytes(mes))
